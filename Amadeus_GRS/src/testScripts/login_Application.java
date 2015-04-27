@@ -28,7 +28,7 @@ public class login_Application {
 		public void test_login_application(){
 			//Create Login Page object     
 			objLogin = new LoginPage(driver);
-			objLogin.setUsername("");
+			//objLogin.setUsername("");
 		}
 
 

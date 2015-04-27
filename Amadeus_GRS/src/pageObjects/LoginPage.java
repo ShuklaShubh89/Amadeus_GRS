@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement; 
 import org.openqa.selenium.support.FindBy; 
 import org.openqa.selenium.support.PageFactory;  
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.pagefactory.ElementLocatorFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
@@ -17,28 +19,33 @@ public class LoginPage {
 	    /* The below web elements cater to the Login screen:*/
 	    
 	    @FindBy(xpath="//span[@id='w2_firstInput']/span/input")    
-	    public WebElement txt_UserName;          
+	    private WebElement txt_UserName;          
 	    
 	    @FindBy(name="//span[@id='w2_officeId']/span/input")    
-	    public WebElement txt_OfficeID;        
+	    private WebElement txt_OfficeID;        
 	    
 	    @FindBy(xpath="//span[@id='w2_passwordInput']/span/input")
-	    public WebElement txt_Password ;
+	    private WebElement txt_Password ;
 
 	    @FindBy(xpath="//*[text()='Login'")
-	    public WebElement btn_Login ;
+	    private WebElement btn_Login ;
 	    
 	    	    
-	    public LoginPage(WebDriver driver){
-	    	 
-	        this.driver = driver;	 
+	    public LoginPage(WebDriver driver){	    	 
+	        this.driver = driver;	
+	        ElementLocatorFactory locatorWait = new AjaxElementLocatorFactory(driver, 60);
+	        
 	        //This initElements method will create all WebElements
-	        PageFactory.initElements(driver, this);
-	 
+	        PageFactory.initElements(locatorWait, this);
 	    }
 	 
-	    public void setUsername(String user){
+	    public void loginUser(String user,String officeid,String pwd){
 	    	this.txt_UserName.sendKeys(user);
+	    	this.txt_OfficeID.sendKeys(officeid);
+	    	this.txt_Password.sendKeys(pwd);
+	    	this.btn_Login.click();
 	    }
+
+	
 	    
 }
