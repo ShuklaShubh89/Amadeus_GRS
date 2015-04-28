@@ -21,13 +21,13 @@ public class LoginPage {
 	    @FindBy(xpath="//span[@id='w2_firstInput']/span/input")    
 	    private WebElement txt_UserName;          
 	    
-	    @FindBy(name="//span[@id='w2_officeId']/span/input")    
+	    @FindBy(xpath="//span[@id='w2_officeId']/span/input")    
 	    private WebElement txt_OfficeID;        
 	    
 	    @FindBy(xpath="//span[@id='w2_passwordInput']/span/input")
 	    private WebElement txt_Password ;
 
-	    @FindBy(xpath="//*[text()='Login'")
+	    @FindBy(xpath="//*[text()='Login']")
 	    private WebElement btn_Login ;
 	    
 	    	    

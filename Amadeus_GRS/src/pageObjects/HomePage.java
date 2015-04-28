@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
-		Menubar_Navigation menubar ;
+		Menubar_Navigation menubar= new Menubar_Navigation();
 			/**      
 	     * * All WebElements are identified by @FindBy annotation      */   
 	    WebDriver driver;     
@@ -28,7 +28,7 @@ public class HomePage {
 	    /* The below web elements cater to the Welcome screen:*/
 	    
 	    @FindBy(id = "sidebar-button")    
-	    private WebElement btn_sidebar;      
+	    private static WebElement btn_sidebar;      
 	    public WebElement getBtn_sidebar() {
 			return btn_sidebar;
 		}
@@ -77,8 +77,8 @@ public class HomePage {
 			}
 		
 	    
-	    public Menubar_Navigation getNavigationbar(){
-	    	this.btn_sidebar.click();
+	    public  Menubar_Navigation getNavigationbar(){
+	    	btn_sidebar.click();
 	    	return menubar;
 	    }
 	    

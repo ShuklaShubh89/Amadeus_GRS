@@ -7,11 +7,16 @@ public class Menubar_Navigation {
 
 		WebDriver  driver;
 		HomePage objhomepage = new HomePage(driver);
+	
+		public Menubar_Navigation(){
+				
+		}
 		
-		
-    public void navigate_to_brands(){    	
-    	objhomepage.getLnk_grsSetup().click();
-    	objhomepage.getLnk_brands().click();  	
+    public void  navigate_to_brands(){    	
+    //	objhomepage.getLnk_grsSetup().click();
+    //	objhomepage.getLnk_brands().click();  
+    	System.out.println("click");
+    	Utilities.navigateHover(objhomepage.getLnk_grsSetup(), objhomepage.getLnk_brands(), driver);
 	    }
     
     public void navigate_to_regions(){
