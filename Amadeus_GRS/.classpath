@@ -48,5 +48,6 @@
 	<classpathentry kind="lib" path="C:/Users/shubham.a.shukla/Downloads/selenium-2.45.0/libs/xalan-2.7.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shubham.a.shukla/Downloads/selenium-2.45.0/libs/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/shubham.a.shukla/Downloads/selenium-2.45.0/libs/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/shubham.a.shukla/Downloads/log4j-1.2.17/apache-log4j-1.2.17/log4j-1.2.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

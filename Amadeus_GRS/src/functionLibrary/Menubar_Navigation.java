@@ -9,7 +9,7 @@ public class Menubar_Navigation {
 		HomePage objhomepage;
 		
 		public Menubar_Navigation(WebDriver drive){
-			driver	= drive;		
+			this.driver	= drive;		
 		    objhomepage = new HomePage(driver);
 		}
 		
