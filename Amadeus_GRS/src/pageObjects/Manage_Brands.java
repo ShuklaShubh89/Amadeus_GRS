@@ -8,10 +8,15 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Manage_Brands {
-	   
+	WebDriver driver;
+		public Manage_Brands(WebDriver driver) {
+			this.driver = driver;
+			
+		}
+
 		/**      
 		 * * All WebElements are identified by @FindBy annotation  */   
-		WebDriver driver;     
+	     
 		
 		/* These elements cater to the following screens:
 		 	
@@ -60,6 +65,8 @@ public class Manage_Brands {
 		
 		@FindBy(xpath="html/body/div[4]/form/save-cancel-btns/div/button[2]")    
 		WebElement cancelButton;
+
+	
 		
 
 }		

@@ -11,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 
@@ -42,7 +43,9 @@ public class Utilities {
 	                driver = new ChromeDriver();
 	                break;
 	            case "firefox":
-	                driver = new FirefoxDriver();
+	                FirefoxProfile profile = new FirefoxProfile();   
+	                profile.setEnableNativeEvents(true);     
+	                driver = new FirefoxDriver(profile);
 	                break;
 	            case "ie":
 	            	File file1 = new File("C:\\selenium-2.42.2\\IEDriverServer.exe");

@@ -17,8 +17,7 @@ public class loginApplication2 {
 
 	public static void main(String[] args) throws Exception {
 		
-		Logger Log = Logger.getLogger(loginApplication2.class.getName());
-		DOMConfigurator.configure("log4j.xml");
+		
 		Log.info("Initialising Selenium...");
 		WebDriver driver = Utilities.webDriverInitialize("firefox");
 		driver.get("https://uat.ahpadmin.testing.amadeus.com/#/home");
