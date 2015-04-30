@@ -46,6 +46,5 @@ public class LoginPage {
 	    	this.btn_Login.click();
 	    }
 
-	
 	    
 }

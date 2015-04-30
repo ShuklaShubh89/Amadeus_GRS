@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HomePage {
 
-		Menubar_Navigation menubar= new Menubar_Navigation();
+		
 			/**      
 	     * * All WebElements are identified by @FindBy annotation      */   
 	    WebDriver driver;     
-	    
+	    Menubar_Navigation menubar;
 	    public HomePage(WebDriver driver){	    	 
 	        this.driver = driver;	
 	        ElementLocatorFactory locatorWait = new AjaxElementLocatorFactory(driver, 60);
@@ -33,7 +33,7 @@ public class HomePage {
 			return btn_sidebar;
 		}
 
-
+    	
 		@FindBy(xpath = "//li[@id ='grs-setup']/a")	    
 	    private WebElement lnk_grsSetup;
 		public WebElement getLnk_grsSetup() {
@@ -76,11 +76,53 @@ public class HomePage {
 		return lnk_myhotel_submenu;
 			}
 		
-	    
+		@FindBy(xpath = "//li[@id ='early-dep-fee']/a")	    
+		private WebElement lnk_early_departure_fee;
+		public WebElement getLnk_early_departure_fee() {
+		return lnk_early_departure_fee;
+			}
+		
+		@FindBy(xpath = "//li[@id ='house-restrictions']/a")	    
+		private WebElement lnk_house_restrictions;
+		public WebElement getLnk_house_restrictions() {
+		return lnk_house_restrictions;
+			}
+		
+		@FindBy(xpath = "//li[@id ='cancel-no-show']/a")	    
+		private WebElement lnk_cancel_noshow;
+		public WebElement getlnk_cancel_noshow() {
+		return lnk_cancel_noshow;
+			}
+		
+		@FindBy(xpath = "//li[@id ='my-inventory']/a")	    
+		private WebElement lnk_my_inventory;
+		public WebElement getlnk_my_inventory() {
+		return lnk_my_inventory;
+			}
+		
+		@FindBy(xpath = "//li[@id ='room-type-catalogue']/a")	    
+		private WebElement lnk_room_type_catalogue;
+		public WebElement getlnk_room_type_catalogue() {
+		return lnk_room_type_catalogue;
+			}
+		
+		@FindBy(xpath = "//li[@id ='room-type-class-setup']/a")	    
+		private WebElement lnk_room_class_setup;
+		public WebElement getlnk_room_class_setup() {
+		return lnk_room_class_setup;
+			}
+		
+		@FindBy(xpath = "//li[@id ='sleeping-rooms']/a")	    
+		private WebElement lnk_room_sleepingRooms;
+		public WebElement getlnk_room_sleepingRooms() {
+		return lnk_room_sleepingRooms;
+			}
+		
 	    public  Menubar_Navigation getNavigationbar(){
 	    	btn_sidebar.click();
 	    	return menubar;
 	    }
 	    
+	  
 	
 }
