@@ -9,12 +9,11 @@ public class driverClass {
 
 	public static void main(String[] args) throws Exception {
 		
-
 		Logger Log = Logger.getLogger(driverClass.class.getName());
 		DOMConfigurator.configure("log4j.xml");
 		Log.info("Initialise selenium");
 		              
-		Utilities.setExcelFile("C:/Users/shubham.a.shukla/Desktop/GRS Amadeus/Driver_testscripts.xlsx");
+		Utilities.setExcelFile("C:/Users/shubham.a.shukla/Desktop/GRS Amadeus/Driver_testscripts.xlsx",0);
 		int rowCount = Utilities.getRowCount();
 		String function_tc;
 		String package_name = "testScripts.";
@@ -23,21 +22,24 @@ public class driverClass {
 		for(int i=1;i<rowCount;i++){                    
 		   class_name = Utilities.getCellData(i, 0);                     
 		   if(class_name.equals("")){
-		     class_name    = temp;
+			   
+		     class_name = temp;
 		     function_tc = Utilities.getCellData(i, 1);
 		     System.out.println("classname : "+class_name+"function name :"+function_tc);
-		                
-		    Class<?> thisClass = Class.forName(class_name);
-		    Object iClass = thisClass.newInstance();
-		    Method thisMethod = thisClass.getDeclaredMethod(function_tc);
-		    thisMethod.invoke(iClass);
+		     Log.info(" Executing Test Case : "+function_tc+" under Use Case :"+class_name);        
+		      Class<?> thisClass = Class.forName(class_name);
+		      Object iClass = thisClass.newInstance();
+		      Method thisMethod = thisClass.getDeclaredMethod(function_tc);
+		      thisMethod.invoke(iClass);
 		                     
 		    }
-		  else{
+		   else{
+			   
 		   class_name = Utilities.getCellData(i, 0);
 		   class_name = package_name.concat(class_name);
 		   temp = class_name;
 		   function_tc = Utilities.getCellData(i, 1);
+		   Log.info(" Executing Test Case : "+function_tc+" under Use Case :"+class_name);
 		   System.out.println("classname : "+class_name+"function name :"+function_tc);
 		                
 		    Class<?> thisClass = Class.forName(class_name);
@@ -46,11 +48,11 @@ public class driverClass {
 		    thisMethod.invoke(iClass);
 		                        
 		    continue;
-		   }
+		    
+		 }
 		       
     }
-		       
-		              		       
+		       		              		       
 		
 }
 

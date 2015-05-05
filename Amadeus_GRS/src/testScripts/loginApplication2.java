@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import Driver.driverClass;
 import functionLibrary.Utilities;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
@@ -17,7 +18,7 @@ public class loginApplication2 {
 
 	public static void main(String[] args) throws Exception {
 		
-		
+		Logger Log = Logger.getLogger(driverClass.class.getName());
 		Log.info("Initialising Selenium...");
 		WebDriver driver = Utilities.webDriverInitialize("firefox");
 		driver.get("https://uat.ahpadmin.testing.amadeus.com/#/home");

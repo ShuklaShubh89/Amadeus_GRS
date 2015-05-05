@@ -11,9 +11,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
+
+import pageObjects.LoginPage;
 
 public class Utilities {
 
@@ -30,8 +31,22 @@ public class Utilities {
     actions.click().build().perform();
     }
     
-    // Initialize the type of browser required
     
+    public static void loginApp(WebDriver driver) throws Exception{
+    	
+    	Utilities.setExcelFile("C:/Users/shubham.a.shukla/git/Amadeus_GRS/Amadeus_GRS/DataSheet.xlsx",0);
+		String userName = Utilities.getCellData(1, 0);
+		String officeID = Utilities.getCellData(1, 1);
+		String password = Utilities.getCellData(1, 2);
+		
+		LoginPage objLogin = new LoginPage(driver);
+		objLogin .loginUser(userName, officeID, password);	
+    }
+    
+    
+    
+    // Initialize the type of browser required
+        
     public static WebDriver webDriverInitialize(String browser){	
     	
 		 WebDriver driver;
@@ -43,9 +58,7 @@ public class Utilities {
 	                driver = new ChromeDriver();
 	                break;
 	            case "firefox":
-	                FirefoxProfile profile = new FirefoxProfile();   
-	                profile.setEnableNativeEvents(true);     
-	                driver = new FirefoxDriver(profile);
+	                driver = new FirefoxDriver();
 	                break;
 	            case "ie":
 	            	File file1 = new File("C:\\selenium-2.42.2\\IEDriverServer.exe");
@@ -61,14 +74,16 @@ public class Utilities {
     
     
     
+    
 	//This method is to set the File path and to open the Excel file, Pass Excel Path and Sheetname as Arguments to this method
   
-	public static void setExcelFile(String Path)  {
+	public static void setExcelFile(String Path,int sheet)  {
 	         try {
 	             // Open the Excel file
 	          FileInputStream ExcelFile = new FileInputStream(Path);
 	          // Access the required test data sheet
 	          ExcelWBook = new XSSFWorkbook(ExcelFile);
+	          ExcelWSheet = ExcelWBook.getSheetAt(sheet);
 	          } catch (Exception e){
 	             e.printStackTrace();
 	          }
@@ -80,7 +95,7 @@ public class Utilities {
 	
 	public static String getCellData(int RowNum, int ColNum) throws Exception{
 	         try{
-	        	ExcelWSheet = ExcelWBook.getSheetAt(0);   	  
+	        	   	  
 	            Cell = ExcelWSheet.getRow(RowNum).getCell(ColNum);
 	            String CellData = Cell.getStringCellValue();
 	            return CellData;
